@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="hu">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <!-- PWA meta tag-ek -->
+  <meta name="apple-mobile-web-app-capable" content="yes">
+  <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+  <meta name="apple-mobile-web-app-title" content="MindWeaver">
+  <link rel="apple-touch-icon" href="icon.png">
+  <link rel="manifest" href="manifest.json">
+  <title>MindWeaver</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <header>
+    <h1>MindWeaver</h1>
+  </header>
+  <main>
+    <div id="canvas-container">
+      <canvas id="mapCanvas"></canvas>
+    </div>
+    <!-- Kontroll elemek -->
+    <section id="controls">
+      <button id="newBubble">Új buborék</button>
+      <button id="connectMode">Csatlakozás: Ki</button>
+      <button id="resetMap">Térkép újrakezdése</button>
+      <button id="exportData">Export JSON</button>
+      <button id="importData">Import JSON</button>
+      <button id="exitFocus" style="display:none;">Kilépés Focus Módból</button>
+      <input type="file" id="fileInput" style="display:none;" accept="application/json">
+      <input type="text" id="search" placeholder="Keresés...">
+    </section>
+  </main>
+  
+  <!-- Buborék szerkesztő modal -->
+  <div id="bubbleModal" class="modal" style="display:none;">
+    <div class="modal-content">
+      <span class="close">&times;</span>
+      <h2>Buborék szerkesztése</h2>
+      <form id="bubbleForm">
+        <label>Cím:</label>
+        <input type="text" id="bubbleTitle" required>
+        <label>Leírás:</label>
+        <textarea id="bubbleDescription"></textarea>
+        <label>Szín:</label>
+        <input type="color" id="bubbleColor" value="#ff6f61">
+        <label>Emoji/Ikon:</label>
+        <input type="text" id="bubbleIcon" placeholder="💡">
+        <label>Címkék (vesszővel elválasztva):</label>
+        <input type="text" id="bubbleTags" placeholder="tag1, tag2">
+        <input type="hidden" id="bubbleId">
+        <button type="submit">Mentés</button>
+      </form>
+    </div>
+  </div>
+
+  <script src="script.js"></script>
+</body>
+</html>
